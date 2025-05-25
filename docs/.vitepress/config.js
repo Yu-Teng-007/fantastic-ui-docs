@@ -1,9 +1,12 @@
-export default {
+import { defineConfig } from "vitepress";
+
+export default defineConfig({
   title: "Fantastic UI",
-  description: "A Vue.js UI Component Library",
-  lang: "zh-CN",
+  description: "一个简洁、易用的移动端 Vue 组件库",
   themeConfig: {
+    logo: "/logo.svg",
     nav: [
+      { text: "首页", link: "/" },
       { text: "指南", link: "/guide/" },
       { text: "组件", link: "/components/" },
     ],
@@ -21,44 +24,53 @@ export default {
         {
           text: "基础组件",
           items: [
-            { text: "Button 按钮", link: "/components/button" },
-            { text: "Icon 图标", link: "/components/icon" },
-            { text: "Image 图片", link: "/components/image" },
+            { text: "按钮 Button", link: "/components/button" },
+            { text: "单元格 Cell", link: "/components/cell" },
+            { text: "图标 Icon", link: "/components/icon" },
+            { text: "图片 Image", link: "/components/image" },
+            { text: "弹出层 Popup", link: "/components/popup" },
           ],
         },
         {
           text: "表单组件",
           items: [
-            { text: "Form 表单", link: "/components/form" },
-            { text: "Field 输入框", link: "/components/field" },
-            { text: "Radio 单选框", link: "/components/radio" },
-            { text: "Checkbox 复选框", link: "/components/checkbox" },
-            { text: "DatePicker 日期选择器", link: "/components/date-picker" },
-            { text: "Picker 选择器", link: "/components/picker" },
+            { text: "日历 Calendar", link: "/components/calendar" },
+            { text: "级联选择 Cascader", link: "/components/cascader" },
+            { text: "复选框 Checkbox", link: "/components/checkbox" },
+            { text: "日期选择器 DatePicker", link: "/components/date-picker" },
+            { text: "输入框 Field", link: "/components/field" },
+            { text: "表单 Form", link: "/components/form" },
             {
-              text: "NumberKeyboard 数字键盘",
+              text: "数字键盘 NumberKeyboard",
               link: "/components/number-keyboard",
             },
+            { text: "选择器 Picker", link: "/components/picker" },
+            { text: "单选框 Radio", link: "/components/radio" },
+            { text: "搜索框 Search", link: "/components/search" },
+            { text: "签名 Signature", link: "/components/signature" },
+            { text: "步进器 Stepper", link: "/components/stepper" },
           ],
         },
         {
           text: "反馈组件",
           items: [
-            { text: "Dialog 对话框", link: "/components/dialog" },
-            { text: "Toast 轻提示", link: "/components/toast" },
-            { text: "Popup 弹出层", link: "/components/popup" },
-            { text: "ActionSheet 动作面板", link: "/components/action-sheet" },
-            { text: "Message 消息提示", link: "/components/message" },
+            { text: "动作面板 ActionSheet", link: "/components/action-sheet" },
+            { text: "对话框 Dialog", link: "/components/dialog" },
+            { text: "消息提示 Message", link: "/components/message" },
+            { text: "通知栏 NoticeBar", link: "/components/noticebar" },
+            { text: "轻提示 Toast", link: "/components/toast" },
           ],
         },
         {
           text: "展示组件",
           items: [
-            { text: "Cell 单元格", link: "/components/cell" },
-            { text: "Popover 气泡弹出框", link: "/components/popover" },
-            { text: "NoticeBar 通知栏", link: "/components/noticebar" },
-            { text: "SwipeCell 滑动单元格", link: "/components/swipe-cell" },
-            { text: "Calendar 日历", link: "/components/calendar" },
+            { text: "单元格组 CellGroup", link: "/components/cell-group" },
+            {
+              text: "下拉菜单 DropdownMenu",
+              link: "/components/dropdown-menu",
+            },
+            { text: "弹出气泡 Popover", link: "/components/popover" },
+            { text: "滑动单元格 SwipeCell", link: "/components/swipe-cell" },
           ],
         },
       ],
@@ -66,9 +78,5 @@ export default {
     socialLinks: [
       { icon: "github", link: "https://github.com/your-username/fantastic-ui" },
     ],
-    footer: {
-      message: "Released under the MIT License.",
-      copyright: "Copyright © 2023-present Fantastic UI",
-    },
   },
-};
+});
