@@ -1,0 +1,19 @@
+{
+  "name": "fantastic-ui-docs",
+  "version": "1.0.0",
+  "description": "Fantastic UI 组件库文档",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "vue": "^3.3.4"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-rc.20",
+    "@vitejs/plugin-vue": "^4.3.4"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
