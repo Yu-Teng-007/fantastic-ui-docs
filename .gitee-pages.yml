@@ -1,0 +1,6 @@
+version: 1.0
+type: static
+build: 
+  script: 
+    - echo "No build step required for static site"
+directory: docs

@@ -2,11 +2,11 @@
   "name": "fantastic-ui-docs",
   "version": "1.0.0",
   "description": "Fantastic UI 组件库文档",
+  "type": "module",
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
-    "deploy": "node deploy.js"
+    "preview": "vitepress preview docs"
   },
   "dependencies": {
     "vue": "^3.3.4"
