@@ -1,91 +1,20 @@
-# Fantastic UI 文档
+# Fantastic UI 文档站点
 
-这是 Fantastic UI 组件库的官方文档，基于 VitePress 构建。
+## 部署状态
+
+[![Deploy to GitHub Pages](https://github.com/[YOUR_USERNAME]/fantastic-ui-docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/[YOUR_USERNAME]/fantastic-ui-docs/actions/workflows/deploy.yml)
 
 ## 本地开发
 
-### 安装依赖
+1. 克隆仓库
+2. 安装依赖：`npm install`
+3. 启动开发服务器：`npm run dev`
+4. 构建生产版本：`npm run build`
 
-```bash
-npm install
-```
+## 在线文档
 
-### 启动开发服务器
+访问 [https://[YOUR_USERNAME].github.io/fantastic-ui-docs/](https://[YOUR_USERNAME].github.io/fantastic-ui-docs/)
 
-```bash
-npm run dev
-```
+## 注意事项
 
-### 构建文档
-
-```bash
-npm run build
-```
-
-### 预览构建结果
-
-```bash
-npm run preview
-```
-
-## 目录结构
-
-```
-fantastic-ui-docs/
-├── docs/                   # 文档内容
-│   ├── .vitepress/        # VitePress 配置
-│   ├── components/        # 组件文档
-│   ├── guide/             # 指南文档
-│   ├── public/            # 静态资源
-│   └── index.md           # 首页
-├── package.json           # 项目配置
-└── README.md              # 项目说明
-```
-
-## 添加新组件文档
-
-1. 在 `docs/components/` 目录下创建新的 Markdown 文件，例如 `button.md`
-2. 在 `.vitepress/config.js` 中添加侧边栏配置
-3. 按照以下格式编写组件文档：
-
-```markdown
-# 组件名称
-
-组件描述
-
-## 基础用法
-
-示例代码和说明
-
-## API
-
-### Props
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| prop1 | 说明1 | _type_ | `default` |
-
-### Events
-
-| 事件名 | 说明 | 回调参数 |
-| --- | --- | --- |
-| event1 | 说明1 | _params_ |
-
-### Slots
-
-| 名称 | 说明 |
-| --- | --- |
-| default | 默认插槽 |
-```
-
-## 贡献指南
-
-1. Fork 本仓库
-2. 创建你的特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交你的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 打开一个 Pull Request
-
-## 许可证
-
-MIT
+请将 `[YOUR_USERNAME]` 替换为你的 GitHub 用户名。
