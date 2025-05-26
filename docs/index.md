@@ -5,7 +5,7 @@ hero:
   text: 简洁、易用的移动端 Vue 组件库
   tagline: 为移动端应用提供丰富的组件和功能
   image:
-    src: /logo.svg
+    src: /logo.png
     alt: Fantastic UI Logo
   actions:
     - theme: brand
