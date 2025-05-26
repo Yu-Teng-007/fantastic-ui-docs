@@ -5,7 +5,7 @@ const path = require("path");
 // 构建输出目录
 const distDir = path.resolve(__dirname, "docs/.vitepress/dist");
 // 部署分支名
-const deployBranch = "gitee-pages";
+const deployBranch = "master";
 
 // 确保dist目录存在
 if (!fs.existsSync(distDir)) {
