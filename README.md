@@ -13,6 +13,11 @@
 
 本项目使用 GitHub Actions 自动部署到 GitHub Pages。每次推送到 `main` 分支时，将自动触发部署流程。
 
+### 站点地址
+
+文档站点可通过以下地址访问：
+[https://yu-teng-007.github.io/fantastic-ui-docs](https://yu-teng-007.github.io/fantastic-ui-docs)
+
 ### 手动部署
 
 如需手动触发部署，可以：
