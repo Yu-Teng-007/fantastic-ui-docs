@@ -1,9 +1,9 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 当推送到 gitee-pages 分支时触发部署
+  # 当推送到 master 分支时触发部署
   push:
-    branches: [gitee-pages]
+    branches: [master]
   
   # 允许手动触发部署
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs/.vitepress/dist
 
   # 部署作业
   deploy:

@@ -1,6 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
+  base: "/fantastic-ui-docs/", // 添加 GitHub Pages 的基础路径
   title: "Fantastic UI",
   description: "一个简洁、易用的移动端 Vue 组件库",
   themeConfig: {
