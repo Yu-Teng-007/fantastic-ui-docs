@@ -1,282 +1,424 @@
-/* Simulator Layout Styles */
+/* 基础样式变量 */
+:root {
+    --vp-sidebar-width: 280px;
+    --vp-layout-max-width: 1440px;
+    --van-doc-black: #323233;
+    --van-doc-blue: #1989fa;
+    --van-doc-purple: #8080ff;
+    --van-doc-fuchsia: #a7419e;
+    --van-doc-green: #4fc08d;
+    --van-doc-text-color: #34495e;
+    --van-doc-text-light-blue: rgba(69, 90, 100, 0.6);
+    --van-doc-background: #fff;
+    --van-doc-grey: #999;
+    --van-doc-dark-grey: #666;
+    --van-doc-light-grey: #ccc;
+    --van-doc-border-color: #f1f4f8;
+    --van-doc-code-color: #58727e;
+    --van-doc-code-background: #f1f4f8;
+    --van-doc-code-font-family: "Source Code Pro", "Monaco", "Inconsolata", monospace;
+    --van-doc-padding: 30px;
+    --van-doc-row-max-width: 1680px;
+    --van-doc-nav-width: 220px;
+}
+
+/* 模拟器容器样式 */
 .simulator-container {
-  display: flex;
-  min-height: 100vh;
+    display: flex;
+    min-height: 100vh;
+    background-color: #eff2f5;
 }
 
+/* 内容区域样式 - 默认不添加右侧内边距 */
 .simulator-content {
-  flex: 1;
-  min-width: 0;
-  padding-right: 400px;
-  transition: padding-right 0.3s;
+    flex: 1;
+    min-width: 0;
+    transition: padding-right 0.3s ease;
 }
 
-.simulator-hidden .simulator-content {
-  padding-right: 0;
+/* 只在URL包含/components时添加右侧内边距 */
+.simulator-content[data-path*="/components"] {
+    padding-right: 400px; /* 为模拟器留出空间 */
 }
 
+.simulator-hidden .simulator-content,
+.simulator-content:not([data-path*="/components"]) {
+    padding-right: 0;
+}
+
+.VPNavBar {
+    background-color: #fff !important;
+}
+
+/* 仿照Vant UI的内容样式 */
+.VPDoc {
+    max-width: 100% !important;
+    padding: 24px 32px !important;
+    background-color: var(--van-doc-background);
+    color: var(--van-doc-text-color);
+}
+
+.VPDoc .container {
+    max-width: 1200px !important;
+    padding: 0 !important;
+    margin: 0 auto !important;
+}
+
+.VPDoc .content {
+    padding: 0 var(--van-doc-padding);
+}
+
+/* 标题样式 */
+.VPDoc h1 {
+    margin: 0 0 30px;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 500;
+    color: var(--van-doc-black);
+    border: none;
+}
+
+.VPDoc h2 {
+    margin: 45px 0 20px;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--van-doc-black);
+}
+
+.VPDoc h3 {
+    margin: 30px 0 16px;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.VPDoc h4 {
+    margin: 24px 0 12px;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.VPDoc h5 {
+    margin: 20px 0 10px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* 段落样式 */
+.VPDoc p {
+    margin: 16px 0;
+    font-size: 15px;
+    line-height: 26px;
+    color: var(--van-doc-text-color);
+}
+
+/* 链接样式 */
+.VPDoc a {
+    color: var(--van-doc-blue);
+    margin: 0 1px;
+    transition: color 0.2s;
+}
+
+/* 代码样式 */
+.VPDoc code {
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    padding: 0 5px;
+    font-size: 13px;
+    font-family: var(--van-doc-code-font-family);
+    line-height: 1.5;
+    color: var(--van-doc-code-color);
+    background-color: var(--van-doc-code-background);
+    border-radius: 3px;
+}
+
+/* 代码块样式 */
+.VPDoc div[class*="language-"] {
+    margin: 20px 0;
+    overflow: auto;
+    position: relative;
+    border-radius: 8px;
+}
+
+.VPDoc div[class*="language-"] pre,
+.VPDoc div[class*="language-"] pre code {
+    font-family: var(--van-doc-code-font-family);
+    font-size: 14px;
+    line-height: 1.6;
+    direction: ltr;
+    margin: 0;
+    padding: 16px 20px;
+    background-color: #fafafa;
+    overflow: auto;
+}
+
+/* 表格样式 */
+.VPDoc table {
+    width: 100%;
+    margin: 16px 0;
+    border-collapse: collapse;
+    border: 1px solid var(--van-doc-border-color);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.VPDoc table th {
+    padding: 12px 12px;
+    font-weight: 500;
+    background-color: #f7f8fa;
+    border-bottom: 1px solid var(--van-doc-border-color);
+}
+
+.VPDoc table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid var(--van-doc-border-color);
+}
+
+.VPDoc table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 示例样式 */
+.van-doc-demo-section {
+    padding: 32px 0;
+    overflow: hidden;
+}
+
+.van-doc-demo-block {
+    padding: 0;
+    margin: 20px 0;
+}
+
+.van-doc-demo-block__title {
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 500;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    background-color: #f7f8fa;
+    border: 1px solid #f1f4f8;
+}
+
+.van-doc-demo-block__card {
+    padding: 18px 16px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-left: 1px solid #f1f4f8;
+    border-right: 1px solid #f1f4f8;
+    border-bottom: 1px solid #f1f4f8;
+}
+
+/* 模拟器设备样式 */
 .simulator-device {
-  position: fixed;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 400px;
-  box-sizing: border-box;
-  background-color: #f7f8fa;
-  border-left: 1px solid #ebedf0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s;
-  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.06);
-  height: 100vh; /* 设置高度为视口高度 */
-  overflow: hidden; /* 防止内容溢出 */
+    position: fixed;
+    right: 30px;
+    /* 从顶部向下偏移，给导航栏留出空间 */
+    top: 90px; /* 调整为更接近顶部 */
+    transform: none; /* 移除垂直居中的变换 */
+    bottom: auto; /* 移除底部定位 */
+    z-index: 10;
+    width: 375px; /* 调整为标准移动设备宽度 */
+    box-sizing: border-box;
+    background-color: #fafafa;
+    border-radius: 12px; /* 增加圆角 */
+    border: 1px solid #e0e0e0; /* 添加边框 */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, width 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* 调整阴影效果 */
+    /* 设置固定高度 */
+    height: calc(100vh - 120px);
+    overflow: hidden;
 }
 
+/* 模拟器iframe样式 */
 .simulator-iframe-wrapper {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  box-sizing: border-box;
-  height: 100%; /* 使用flex:1和height:100%确保填满容器 */
-  width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 顶部对齐 */
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    overflow: auto; /* 允许滚动 */
 }
 
 .simulator-iframe {
-  width: 100%;
-  height: 100%;
-  max-width: 400px;
-  max-height: none; /* 移除最大高度限制 */
-  display: block;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    background-color: #fff;
 }
 
+/* 模拟器切换按钮样式 */
 .simulator-toggle {
-  position: fixed;
-  right: 16px;
-  bottom: 16px;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: 40px;
-  padding: 0 16px;
-  font-size: 14px;
-  background-color: #1989fa;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  box-shadow: 0 2px 8px rgba(25, 137, 250, 0.3);
-  cursor: pointer;
-  transition: all 0.3s;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 40px;
+    padding: 0 16px;
+    font-size: 14px;
+    background-color: #1989fa;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(25, 137, 250, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .simulator-toggle:hover {
-  background-color: #0570db;
+    background-color: #0570db;
 }
 
 .simulator-toggle svg {
-  margin-right: 6px;
-}
-
-/* Media query for mobile devices */
-@media (max-width: 1100px) {
-  .simulator-content {
-    padding-right: 0;
-  }
-  
-  .simulator-device {
-    transform: translateX(100%);
-  }
-  
-  .simulator-hidden .simulator-device {
-    transform: translateX(0);
-  }
-}
-
-/* Adjust VitePress layout for simulator */
-:root {
-  --vp-layout-max-width: 1440px;
-}
-
-.VPDoc.has-aside .content-container {
-  max-width: 100%;
-}
-
-/* 调整左侧栏宽度 - 默认样式 */
-.VPSidebar {
-  width: 250px !important;
-  padding: 0 20px !important;
-}
-
-.VPNavBar.has-sidebar .content {
-  padding-left: 250px !important;
-}
-
-.VPSidebarItem.level-0 {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-}
-
-.VPSidebarItem.level-1 {
-  padding-left: 10px !important;
-  padding-right: 10px !important;
-}
-
-/* 调整文档内容区域，增加可用空间 */
-.VPDoc:not(.has-sidebar) .container {
-  max-width: 100% !important;
-}
-
-.VPDoc.has-aside .content-container {
-  max-width: 100% !important;
-}
-
-.VPContent.has-sidebar {
-  padding-left: 250px !important;
-}
-
-/* 调整侧边栏链接样式，使其更紧凑 */
-.VPSidebarItem .link {
-  padding: 6px 0 !important;
-}
-
-.VPSidebarItem .text {
-  font-size: 14px !important;
-}
-
-/* 响应式布局 - 媒体查询 */
-/* 大屏幕设备 (1440px 及以上) */
-@media (min-width: 1440px) {
-  .simulator-content {
-    padding-right: 70px;
-  }
-
-  .simulator-device {
-    width: 450px;
-  }
-
-  .simulator-iframe {
-    max-width: 450px;
-  }
-
-  .VPContent.has-sidebar {
-    padding-left: 280px !important;
-    padding-right: 0px !important;
-  }
-}
-
-/* 中等屏幕设备 (1024px 到 1439px) */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .simulator-content {
-    padding-right: 60px;
-  }
-
-  .simulator-device {
-    width: 400px;
-  }
-
-  .simulator-iframe {
-    max-width: 400px;
-  }
-}
-
-/* 小屏幕设备 (768px 到 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .simulator-content {
-    padding-right: 50px;
-  }
-
-  .simulator-device {
-    width: 350px;
-  }
-
-  .simulator-iframe {
-    max-width: 350px;
-  }
-}
-
-/* 平板设备 (768px 以下) */
-@media (max-width: 767px) {
-  .simulator-content {
-    padding-right: 0;
-  }
-  
-  .simulator-device {
-    width: 100%;
-    padding: 0;
-  }
-  
-  .simulator-iframe {
-    max-width: 100%;
-    width: 100%;
-  }
-}
-
-/* 移动设备 (640px 以下) */
-@media (max-width: 639px) {
-  .simulator-device {
-    transform: translateX(100%);
-  }
-  
-  .simulator-hidden .simulator-device {
-    transform: translateX(0);
-  }
+    margin-right: 6px;
 }
 
 /* 隐藏右侧的aside侧边栏（目录导航） */
 .VPDoc .aside {
-  display: none !important;
-  width: 0 !important;
-}
-
-/* 调整内容区域，使其占据aside侧边栏的空间 */
-.VPDoc.has-aside .content-container {
-  max-width: 100% !important;
-}
-
-.VPDoc .container {
-  max-width: 100% !important;
-}
-
-.VPDoc .content {
-  max-width: 100% !important;
-  padding-right: 32px !important;
-}
-
-/* 调整内容区域的宽度 */
-.VPDoc:not(.has-aside) .content {
-  max-width: 100% !important;
-}
-
-/* 移除内容区域的右侧空间 */
-.VPDoc .content-container {
-  padding-right: 0 !important;
-}
-
-/* 组件页面的模拟器样式 */
-.is-component-page .simulator-device {
-  display: flex !important;
-}
-
-.is-component-page .simulator-close {
-  display: none !important;
-}
-
-.is-component-page .simulator-toggle {
-  display: none !important;
+    display: none !important;
+    width: 0 !important;
 }
 
 /* 移除不需要的样式 */
 .simulator-actions,
 .simulator-action-button,
 .simulator-header {
-  display: none;
-} 
+    display: none;
+}
+
+/* API表格样式 */
+.van-doc-api {
+    margin: 30px 0;
+}
+
+.van-doc-api table {
+    width: 100%;
+    font-size: 14px;
+    line-height: 1.5;
+    border-collapse: collapse;
+}
+
+.van-doc-api table th {
+    padding: 12px 12px;
+    font-weight: 500;
+    background-color: #f7f8fa;
+    border-bottom: 1px solid #f1f4f8;
+}
+
+.van-doc-api table td {
+    padding: 12px 12px;
+    border-bottom: 1px solid #f1f4f8;
+}
+
+.van-doc-api table tr:last-child td {
+    border-bottom: none;
+}
+
+.van-doc-api h3 {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 30px 0 16px;
+}
+
+/* 示例块样式 */
+.van-doc-example {
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 12px #ebedf0;
+}
+
+.van-doc-example__title {
+    padding: 0 16px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.van-doc-example__content {
+    padding: 16px;
+    position: relative;
+}
+
+/* 响应式布局 - 媒体查询 */
+/* 大屏幕设备 (1440px 及以上) */
+@media (min-width: 1440px) {
+    .simulator-content[data-path*="/components"] {
+        padding-right: 100px; /* 为模拟器留出空间 */
+    }
+    .VPContent.has-sidebar {
+        padding-right: 320px !important; /* 为模拟器留出空间 */
+    }
+}
+
+/* 中等屏幕设备 (1024px 到 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .simulator-content[data-path*="/components"] {
+        padding-right: 400px; /* 为模拟器留出空间 */
+    }
+}
+
+/* 小屏幕设备 (768px 到 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .simulator-content[data-path*="/components"] {
+        padding-right: 375px; /* 为模拟器留出空间 */
+    }
+}
+
+/* 平板设备 (768px 以下) */
+@media (max-width: 767px) {
+    .simulator-content[data-path*="/components"] {
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .simulator-device {
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+/* 移动设备 (640px 以下) */
+@media (max-width: 639px) {
+    .simulator-device {
+        transform: translateX(100%);
+    }
+
+    .simulator-hidden .simulator-device {
+        transform: translateX(0);
+    }
+}
+
+/* 按钮组件展示区样式 */
+.button-section {
+    margin: 30px 0;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 12px #ebedf0;
+}
+
+.button-section__title {
+    margin: 0 0 16px;
+    font-weight: 600;
+}
+
+.button-section__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}

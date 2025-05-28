@@ -8,12 +8,12 @@
 
 ```vue
 <template>
-  <fanc-button>默认按钮</fanc-button>
-  <fanc-button type="primary">主要按钮</fanc-button>
-  <fanc-button type="success">成功按钮</fanc-button>
-  <fanc-button type="warning">警告按钮</fanc-button>
-  <fanc-button type="danger">危险按钮</fanc-button>
-  <fanc-button type="info">信息按钮</fanc-button>
+    <fanc-button>默认按钮</fanc-button>
+    <fanc-button type="primary">主要按钮</fanc-button>
+    <fanc-button type="success">成功按钮</fanc-button>
+    <fanc-button type="warning">警告按钮</fanc-button>
+    <fanc-button type="danger">危险按钮</fanc-button>
+    <fanc-button type="info">信息按钮</fanc-button>
 </template>
 ```
 
@@ -23,11 +23,11 @@
 
 ```vue
 <template>
-  <fanc-button plain>朴素按钮</fanc-button>
-  <fanc-button type="primary" plain>主要按钮</fanc-button>
-  <fanc-button type="success" plain>成功按钮</fanc-button>
-  <fanc-button type="warning" plain>警告按钮</fanc-button>
-  <fanc-button type="danger" plain>危险按钮</fanc-button>
+    <fanc-button plain>朴素按钮</fanc-button>
+    <fanc-button type="primary" plain>主要按钮</fanc-button>
+    <fanc-button type="success" plain>成功按钮</fanc-button>
+    <fanc-button type="warning" plain>警告按钮</fanc-button>
+    <fanc-button type="danger" plain>危险按钮</fanc-button>
 </template>
 ```
 
@@ -37,9 +37,9 @@
 
 ```vue
 <template>
-  <fanc-button disabled>禁用按钮</fanc-button>
-  <fanc-button type="primary" disabled>禁用按钮</fanc-button>
-  <fanc-button type="success" disabled>禁用按钮</fanc-button>
+    <fanc-button disabled>禁用按钮</fanc-button>
+    <fanc-button type="primary" disabled>禁用按钮</fanc-button>
+    <fanc-button type="success" disabled>禁用按钮</fanc-button>
 </template>
 ```
 
@@ -49,9 +49,9 @@
 
 ```vue
 <template>
-  <fanc-button loading>加载中...</fanc-button>
-  <fanc-button type="primary" loading>加载中...</fanc-button>
-  <fanc-button type="success" loading loading-text="加载中">加载中</fanc-button>
+    <fanc-button loading>加载中...</fanc-button>
+    <fanc-button type="primary" loading>加载中...</fanc-button>
+    <fanc-button type="success" loading loading-text="加载中">加载中</fanc-button>
 </template>
 ```
 
@@ -61,21 +61,21 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" square>方形按钮</fanc-button>
-  <fanc-button type="success" round>圆角按钮</fanc-button>
+    <fanc-button type="primary" square>方形按钮</fanc-button>
+    <fanc-button type="success" round>圆角按钮</fanc-button>
 </template>
 ```
 
 ## 图标按钮
 
-通过 `icon` 属性设置按钮图标，支持图标名称或图片URL。
+通过 `icon` 属性设置按钮图标，支持图标名称或图片 URL。
 
 ```vue
 <template>
-  <fanc-button icon="home">首页</fanc-button>
-  <fanc-button icon="plus" type="primary">新增</fanc-button>
-  <fanc-button icon="check" type="success">确认</fanc-button>
-  <fanc-button icon="https://example.com/icon.png">图片图标</fanc-button>
+    <fanc-button icon="home">首页</fanc-button>
+    <fanc-button icon="plus" type="primary">新增</fanc-button>
+    <fanc-button icon="check" type="success">确认</fanc-button>
+    <fanc-button icon="https://example.com/icon.png">图片图标</fanc-button>
 </template>
 ```
 
@@ -85,10 +85,10 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" size="large">大号按钮</fanc-button>
-  <fanc-button type="primary">普通按钮</fanc-button>
-  <fanc-button type="primary" size="small">小型按钮</fanc-button>
-  <fanc-button type="primary" size="mini">迷你按钮</fanc-button>
+    <fanc-button type="primary" size="large">大号按钮</fanc-button>
+    <fanc-button type="primary">普通按钮</fanc-button>
+    <fanc-button type="primary" size="small">小型按钮</fanc-button>
+    <fanc-button type="primary" size="mini">迷你按钮</fanc-button>
 </template>
 ```
 
@@ -98,7 +98,7 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" block>块级元素按钮</fanc-button>
+    <fanc-button type="primary" block>块级元素按钮</fanc-button>
 </template>
 ```
 
@@ -108,8 +108,8 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" url="/pages/home/index">URL 跳转</fanc-button>
-  <fanc-button type="primary" :to="{ path: '/home' }">路由跳转</fanc-button>
+    <fanc-button type="primary" url="/pages/home/index">URL 跳转</fanc-button>
+    <fanc-button type="primary" :to="{ path: '/home' }">路由跳转</fanc-button>
 </template>
 ```
 
@@ -119,10 +119,10 @@
 
 ```vue
 <template>
-  <fanc-button color="#8c67ec">单色按钮</fanc-button>
-  <fanc-button color="#8c67ec" plain>单色按钮</fanc-button>
-  <fanc-button color="#7232dd">单色按钮</fanc-button>
-  <fanc-button color="#7232dd" plain>单色按钮</fanc-button>
+    <fanc-button color="#8c67ec">单色按钮</fanc-button>
+    <fanc-button color="#8c67ec" plain>单色按钮</fanc-button>
+    <fanc-button color="#7232dd">单色按钮</fanc-button>
+    <fanc-button color="#7232dd" plain>单色按钮</fanc-button>
 </template>
 ```
 
@@ -132,7 +132,7 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" hairline plain>细边框按钮</fanc-button>
+    <fanc-button type="primary" hairline plain>细边框按钮</fanc-button>
 </template>
 ```
 
@@ -142,7 +142,7 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" shadow>阴影按钮</fanc-button>
+    <fanc-button type="primary" shadow>阴影按钮</fanc-button>
 </template>
 ```
 
@@ -152,14 +152,14 @@
 
 ```vue
 <template>
-  <fanc-button type="primary" @click="onClick">点击按钮</fanc-button>
+    <fanc-button type="primary" @click="onClick">点击按钮</fanc-button>
 </template>
 
 <script setup>
-import { showToast } from 'fantastic-ui';
+import { showToast } from "fantastic-ui";
 
 const onClick = () => {
-  showToast('按钮被点击');
+    showToast("按钮被点击");
 };
 </script>
 ```
@@ -168,34 +168,34 @@ const onClick = () => {
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| type | 按钮类型，可选值为 `default` `primary` `success` `warning` `danger` `info` | _string_ | `default` |
-| plain | 是否为朴素按钮 | _boolean_ | `false` |
-| disabled | 是否禁用按钮 | _boolean_ | `false` |
-| loading | 是否显示为加载状态 | _boolean_ | `false` |
-| loadingText | 加载状态文字 | _string_ | - |
-| square | 是否为方形按钮 | _boolean_ | `false` |
-| round | 是否为圆角按钮 | _boolean_ | `false` |
-| icon | 按钮图标，支持图标名称或图片URL | _string_ | - |
-| iconSize | 图标大小 | _string \| number_ | - |
-| iconColor | 图标颜色 | _string_ | - |
-| size | 按钮尺寸，可选值为 `large` `normal` `small` `mini` | _string_ | `normal` |
-| block | 是否为块级元素 | _boolean_ | `false` |
-| url | 跳转链接 | _string_ | - |
-| to | 路由跳转对象，同 vue-router 的 to | _string \| object_ | - |
-| color | 按钮颜色，支持十六进制颜色 | _string_ | - |
-| hairline | 是否使用细边框 | _boolean_ | `false` |
-| shadow | 是否显示阴影 | _boolean_ | `false` |
+| 参数        | 说明                                                                       | 类型               | 默认值    |
+| ----------- | -------------------------------------------------------------------------- | ------------------ | --------- |
+| type        | 按钮类型，可选值为 `default` `primary` `success` `warning` `danger` `info` | _string_           | `default` |
+| plain       | 是否为朴素按钮                                                             | _boolean_          | `false`   |
+| disabled    | 是否禁用按钮                                                               | _boolean_          | `false`   |
+| loading     | 是否显示为加载状态                                                         | _boolean_          | `false`   |
+| loadingText | 加载状态文字                                                               | _string_           | -         |
+| square      | 是否为方形按钮                                                             | _boolean_          | `false`   |
+| round       | 是否为圆角按钮                                                             | _boolean_          | `false`   |
+| icon        | 按钮图标，支持图标名称或图片 URL                                           | _string_           | -         |
+| iconSize    | 图标大小                                                                   | _string \| number_ | -         |
+| iconColor   | 图标颜色                                                                   | _string_           | -         |
+| size        | 按钮尺寸，可选值为 `large` `normal` `small` `mini`                         | _string_           | `normal`  |
+| block       | 是否为块级元素                                                             | _boolean_          | `false`   |
+| url         | 跳转链接                                                                   | _string_           | -         |
+| to          | 路由跳转对象，同 vue-router 的 to                                          | _string \| object_ | -         |
+| color       | 按钮颜色，支持十六进制颜色                                                 | _string_           | -         |
+| hairline    | 是否使用细边框                                                             | _boolean_          | `false`   |
+| shadow      | 是否显示阴影                                                               | _boolean_          | `false`   |
 
 ### Events
 
-| 事件名 | 说明 | 回调参数 |
-| --- | --- | --- |
-| click | 点击按钮时触发 | _event: Event_ |
+| 事件名 | 说明           | 回调参数       |
+| ------ | -------------- | -------------- |
+| click  | 点击按钮时触发 | _event: Event_ |
 
 ### Slots
 
-| 名称 | 说明 |
-| --- | --- |
+| 名称    | 说明     |
+| ------- | -------- |
 | default | 按钮内容 |

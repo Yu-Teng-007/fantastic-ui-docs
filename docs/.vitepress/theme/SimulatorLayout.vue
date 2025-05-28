@@ -1,14 +1,14 @@
 <template>
     <div class="simulator-container" :class="{ 'simulator-hidden': !showSimulator }">
-        <div class="simulator-content">
+        <div class="simulator-content" :data-path="route.path">
             <Layout />
         </div>
-        <div class="simulator-device" v-if="showSimulator">
+        <div class="simulator-device" v-if="showSimulator && isComponentsPage()">
             <div class="simulator-iframe-wrapper">
                 <iframe class="simulator-iframe" :src="simulatorUrl" frameborder="0" ref="simulatorIframe"></iframe>
             </div>
         </div>
-        <div class="simulator-toggle" v-if="!showSimulator" @click="toggleSimulator">
+        <button class="simulator-toggle" v-if="!showSimulator && isComponentsPage()" @click="toggleSimulator">
             <svg viewBox="0 0 1024 1024" width="20" height="20">
                 <path
                     d="M128 224h768a32 32 0 0 1 0 64H128a32 32 0 0 1 0-64z m0 256h768a32 32 0 0 1 0 64H128a32 32 0 0 1 0-64z m0 256h768a32 32 0 0 1 0 64H128a32 32 0 0 1 0-64z"
@@ -16,7 +16,7 @@
                 ></path>
             </svg>
             显示模拟器
-        </div>
+        </button>
     </div>
 </template>
 
@@ -41,12 +41,22 @@ const simulatorUrl = computed(() => {
     // Extract component name from path
     const componentName = route.path.split("/").pop();
 
+    // Special case for button component to use our local demo
+    if (componentName === "button") {
+        return "/button-demo.html";
+    }
+
     // Map component name to demo path
     // You may need to adjust this mapping based on your actual demo routes
     return `${baseSimulatorUrl}${componentName}`;
 });
 
-// Only show simulator on component pages
+// 检查是否在组件页面路径下
+const isComponentsPage = () => {
+    return route.path.includes("/components");
+};
+
+// 检查是否为具体组件页面（不是组件首页）
 const isComponentPage = () => {
     return route.path.startsWith("/components/") && route.path !== "/components/";
 };
@@ -54,11 +64,11 @@ const isComponentPage = () => {
 watch(
     () => route.path,
     () => {
-        // 如果是组件页面，始终显示模拟器
-        if (isComponentPage()) {
+        // 如果在组件路径下，则显示模拟器
+        if (isComponentsPage()) {
             showSimulator.value = true;
-        } else if (isMobileView.value) {
-            // 在移动视图中，如果不是组件页面，则隐藏模拟器
+        } else {
+            // 不在组件路径下，隐藏模拟器
             showSimulator.value = false;
         }
     },
@@ -66,8 +76,8 @@ watch(
 );
 
 const toggleSimulator = () => {
-    // 如果是组件页面，不允许隐藏模拟器
-    if (isComponentPage()) return;
+    // 只在组件路径下允许切换模拟器
+    if (!isComponentsPage()) return;
 
     showSimulator.value = !showSimulator.value;
 };
@@ -76,11 +86,11 @@ const toggleSimulator = () => {
 const checkMobileView = () => {
     isMobileView.value = window.innerWidth < 768;
 
-    // 如果是组件页面，始终显示模拟器
-    if (isComponentPage()) {
+    // 如果在组件路径下，并且不是移动视图，则显示模拟器
+    if (isComponentsPage() && !isMobileView.value) {
         showSimulator.value = true;
     } else if (isMobileView.value) {
-        // 在移动视图中，如果不是组件页面，则隐藏模拟器
+        // 在移动视图中，默认隐藏模拟器
         showSimulator.value = false;
     }
 };

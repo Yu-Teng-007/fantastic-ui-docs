@@ -6,6 +6,6 @@ export default {
     extends: DefaultTheme,
     Layout: SimulatorLayout,
     enhanceApp({ app }) {
-        // Register global components or plugins if needed
+        // Register global components
     },
 };
