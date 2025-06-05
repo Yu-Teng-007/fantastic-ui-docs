@@ -2,9 +2,9 @@
     "name": "fanc-docs",
     "compatibility_date": "2025-04-01",
     "compatibility_flags": ["nodejs_compat"],
-    "main": "./docs/vitepress/dist/index.html",
+    "main": "./docs/.vitepress/dist/index.html",
     "assets": {
-        "directory": "./docs/vitepress/dist",
+        "directory": "./docs/.vitepress/dist",
         "binding": "ASSETS"
     },
     "observability": {
